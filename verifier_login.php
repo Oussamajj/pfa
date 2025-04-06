@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } else {
         // L'utilisateur n'existe pas, afficher un message d'erreur
-        echo "Email ou mot de passe incorrect";
+        header("Location: index_404.html");
     }
 
     $REQUET->close();
