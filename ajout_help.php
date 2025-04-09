@@ -33,9 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($REQUET->execute()) {
         echo "Message saved successfully in the database. ";
 
-   
+        // Envoi d'email via Sendinblue API
         try {
-            
+            $config = Configuration::getDefaultConfiguration()->setApiKey('api-key','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'); // Remplace par ta clé API Sendinblue
 
             $apiInstance = new TransactionalEmailsApi(
                 new Client(),
