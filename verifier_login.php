@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = $_POST["email"];
     $password = $_POST["password"];
 
+    
     // Préparation de la requête pour vérifier si l'email et le mot de passe existent dans la base
     $REQUET = $connexion->prepare("select * from inscription where email = ? and password = ?");
     $REQUET->bind_param("ss", $mail, $password); // "ss" signifie deux paramètres de type string

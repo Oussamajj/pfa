@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data connection</title>
+   <link rel="stylesheet" href="style_accueill.css">
+   <link rel="stylesheet" href="css_idee.css">
+    
+</head>
+<body>
+    <div class="form-container">
+        <h2>Data connection</h2>
+        <form id="form-tombola">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemple@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="prenom">password</label>
+                <input type="text" id="password" name="password" placeholder="entrer le password" required>
+            </div>
+            <button type="submit" class="submit-btn">Envoyer</button>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <h2>info connection</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>E-mail</th>
+                    <th>password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="participants">
+                <tr>
+                    <td>john.doe@example.com</td>
+                    <td>1234</td>
+                    <td>
+                        <button class="edit-btn">Modifier</button>
+                        <button class="delete-btn">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+    <div class="winner-container">
+        <h3>ecron</h3>
+    </div>
+    <div class="account-options">
+        <p>go back    <a href="direction .html">retour</a></p>
+    </div>  
+   <script>
+   
+   const form = document.getElementById("form-tombola");
+        const participantsTable = document.getElementById("participants");
+        let currentEditRow = null; // Pour suivre la ligne en cours de modification
+
+        // Fonction pour afficher une alerte
+        function afficherAlerte(message, type) { 
+           const container = document.querySelector(".winner-container");//SELECTionner les container
+            const alert = document.createElement("div"); //creer un element div
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;//css
+            container.innerHTML = "";
+            container.appendChild(alert);
+            setTimeout(() => alert.remove(), 3000);
+        }
+
+        // Ajouter ou modifier un participant
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value.trim();
+            const nom = document.getElementById("password").value.trim();//supprimer les espace
+            if (!password || !email) {
+                afficherAlerte("Veuillez remplir tous les champs.", "danger");
+                return;
+            }
+
+            if (currentEditRow) {
+                // Modification en cours
+                currentEditRow.cells[0].textContent = email;
+                currentEditRow.cells[1].textContent = password;
+                afficherAlerte("Participant modifié avec succès.", "success");
+                currentEditRow = null; // Réinitialise la ligne en cours de modification
+            } else {
+                // Ajout d'un nouveau participant
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${email}</td>
+                    <td>${password}</td>
+                    <td>
+                        <button class="edit-btn">Modifier</button>
+                        <button class="delete-btn">Supprimer</button>
+                    </td>
+                `;
+                participantsTable.appendChild(row);
+
+                afficherAlerte("Participant ajouté avec succès.", "success");
+            }
+
+            form.reset(); // Réinitialise le formulaire
+        });
+
+        // Gérer les actions Modifier/Supprimer
+        participantsTable.addEventListener("click", (e) => {
+            const target = e.target;
+
+            // Supprimer un participant
+            if (target.classList.contains("delete-btn")) {
+                target.closest("tr").remove();
+                afficherAlerte("Participant supprimé.", "danger");
+                return;
+            }
+
+            // Modifier un participant
+            if (target.classList.contains("edit-btn")) {
+                const row = target.closest("tr");
+                const cells = row.querySelectorAll("td");
+
+                document.getElementById("email").value = cells[0].textContent;
+                document.getElementById("password").value = cells[1].textContent;
+                currentEditRow = row; // Enregistre la ligne en cours de modification
+                afficherAlerte("Modifiez les informations dans le formulaire et soumettez.", "success");
+            }
+        });
+    
+ </script>
+</body>
+</html>

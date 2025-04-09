@@ -1,0 +1,147 @@
+body {  
+    background: url(http://demos.creative-tim.com/paper-kit-2/assets/img/antoine-barres.jpg);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+.form-container {
+    width: 800px;
+padding: 30px;
+border: 1px solid rgba(255, 255, 255, 0.5);
+backdrop-filter:blur(7px);
+border-radius:8px;
+display:flex;
+display:grid;
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.form-group input[type="text"] {
+    text-transform: capitalize;
+}
+.form-group input[type="email"] {
+    text-transform: lowercase;
+}
+.submit-btn {
+    display: block;
+    width: 80px;
+    padding: 10px;
+    background-color: #8cbbee;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.submit-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+border-color: #fff;
+color: #fff;
+}
+.table-container {
+    width: 800px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter:blur(7px);
+    border-radius:8px;
+    display:flex;
+    display:grid;
+}
+.table-container h2{
+   justify-content: center;
+   display: flex;
+
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+   
+}
+table, th, td {
+    border: 2px solid #7a9da3;
+  
+}
+th, td {
+    text-align: center;
+    padding: 8px;
+    
+   
+}
+th {
+    background-color: #a0b1b7;
+}
+.winner-container {
+    width: 200px;
+ padding: 30px;
+ border: 1px solid rgba(255, 255, 255, 0.5);
+ backdrop-filter:blur(7px);
+  border-radius:8px;
+ display:flex;
+ display:grid;
+}
+.winner-container h3 {
+    color: #597076;
+}
+.edit-btn{
+    width: 80px;
+    padding: 10px;
+    background-color: #8cecee;
+    color: #f2f5f4;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.edit-btn:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+    color: #fff;
+}
+.delete-btn{
+    width: 90px;
+    padding: 10px;
+    background-color: #e8937d;
+    color: #f2f5f4;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto;
+}.delete-btn:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+    color: #fff;}
+    .account-options{
+        text-align: center;
+        margin-top: 30px;
+        color: #fff;
+    }
+    .account-options a{
+        text-align: center;
+        margin-top: 30px;
+        color: #37b4ca;
+    }
